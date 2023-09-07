@@ -4,14 +4,14 @@ Product catalog website where a customer can visit, register themselves,browse p
 
 #Backened using SpringBoot:
 
-Build a Rest API to support successful/unsuccessful user authentication validation, register new users,get other details such as description for product, get prices for a product or list of products
-Search product API
-Build a Rest API to search a product by one or many of the following parameters:
-1. Name
-2. Product code
-3. Brand
-Get Serviceability API
-Build a Rest API to check if a product is serviceable/deliverable to a certain pincode and what is the expected delivery time
+Build a Rest API to support successful/unsuccessful user authentication validation, register new users,get other details such as description for product, get prices for a product or list of products.
+Search product API-
+  Build a Rest API to search a product by one or many of the following parameters:
+  1. Name
+  2. Product code
+  3. Brand
+Get Serviceability API-
+  Build a Rest API to check if a product is serviceable/deliverable to a certain pincode and what is the expected delivery time
 
 #Frontend using Angular
 Landing page  have links for Registration and Login.Proper error messages has been handled in case of invalid authentication.
