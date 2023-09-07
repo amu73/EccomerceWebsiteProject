@@ -1,7 +1,8 @@
-# MyProjects
+
+
 Product catalog website where a customer can visit, register themselves,browse products, search products, view product details
 
-#Backened API:
+#Backened using SpringBoot:
 
 Build a Rest API to support successful/unsuccessful user authentication validation, register new users,get other details such as description for product, get prices for a product or list of products
 Search product API
@@ -12,7 +13,7 @@ Build a Rest API to search a product by one or many of the following parameters:
 Get Serviceability API
 Build a Rest API to check if a product is serviceable/deliverable to a certain pincode and what is the expected delivery time
 
-#Frontend:
+#Frontend using Angular
 Landing page  have links for Registration and Login.Proper error messages has been handled in case of invalid authentication.
 Validation for email address, password policy, mandatory fields such as name etc. has been performed in registration page.
 Homepage show a search box with which a customer can search for a product.
