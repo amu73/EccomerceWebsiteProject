@@ -1,0 +1,62 @@
+<!-- <div class="stuck" style="z-index: 1" >
+    <div class="main" style="margin-top: -50px;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #7ec0ef;" >
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >                  
+                    <form class="d-flex">
+                        
+                            <a style=" margin-top:40px; margin: right 0%;" mat-raised-button routerLink="/productHome" target="_blank">back</a>
+                    </form>
+                </div>
+            </div><br>
+        </nav>
+    </div>
+</div> -->
+<span style="margin-left:1150px; margin-top:35px;">
+    <a style="margin-left: 20px;margin-top:10px;" mat-raised-button routerLink="/productHome" target="_blank">back</a>
+    <div class="main" style=" position: absolute;
+    z-index: 1;margin-left: 70px;margin-top:50px;height: auto;" class=" container">
+        <section style="background-color: rgb(95, 224, 198);">
+            <div class="container py-5">
+                <div class="row justify-content-">
+                    <div class="col-md-5">
+                        <div class="card text-black">
+                            <ng-container *ngFor="let product of allProductList">
+                                <img src="{{product.image}}" class="card-img-top" alt="Apple Computer" />
+                            </ng-container>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <button routerLink="/orderPlaced" type="submit" mat-raised-button color="warn">
+                                BUYNOW</button>
+                                
+                        </div>                   
+                    </div>
+                    <div class="col-md-7">
+                        <div>
+                            <div class="project-info-box" style="width: 500px;margin-left:30px;">
+                                <ng-container *ngFor="let product of allProductList">
+                                    <p><b>Name:</b>
+                                        {{product.name}}</p>
+                                    <p style="word-wrap:break-word"><b>Description:</b>
+                                        {{product.description}}</p>
+                                    <p><b>Brand:</b>
+                                        {{product.brand}}</p>
+                                        <p><b>Product Code:</b>
+                                            {{product.code}}</p>
+                                    <p><b>Price:</b>
+                                        {{product.price|currency:'INR'}} </p>
+                                    <!-- <p style="font-style: italic;">do you want to buy this product ?if yes</p> -->
+                                    <p style="font-style: oblique;">please click on Buy Now  for checking service
+                                        availablility to  Pincode
+                                    </p>
+                                </ng-container>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+

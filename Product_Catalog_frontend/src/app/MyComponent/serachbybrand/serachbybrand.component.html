@@ -1,0 +1,93 @@
+
+    <div class="stuck" style="z-index: 1">
+        <div class="main" style="margin-top: -50px;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Product Website</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a style="margin-left: 20px;" class="nav-link dropdown-toggle" href="#"
+                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Search By
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- <li><a routerLink="/productHome" class="dropdown-item" href="#">Product</a></li> -->
+                                    <li><a routerLink="/productHome" class="dropdown-item" href="#">Product Name</a></li>
+                                
+                                    <li><a routerLink="/searchbyproductcode" class="dropdown-item" href="#">Product Code</a></li>
+                                    <li><a routerLink="/searchbybrand" class="dropdown-item" href="#">Brand</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a style="margin-left: 20px;" class="nav-link dropdown-toggle" href="#"
+                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Filter By
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a routerLink="/fiterByPriceBrand" class="dropdown-item" href="#">Price(low to high)</a></li>
+                                    <li><a routerLink="/productHome" class="dropdown-item" href="#">Back</a></li>
+                                    <!-- <li><a routerLink="/filterByPrice" class="dropdown-item" href="#">Price(low to high)</a></li> -->
+                                    <li><a routerLink="/filterByPriceDesc" class="dropdown-item" href="#">Price(high to low)</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <form class="d-flex">
+                            <input style="width:400px;margin-left:30px;" [(ngModel)]="searchTerm"
+                                (keyup)="search($event)" class="form-control me-4" type="search"
+                                placeholder="Search by Brand Name" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <form class="d-flex">
+                        <button style="margin-left:500px;" class="logout" (click)="logout()" class="btn btn-outline-danger"
+                            type="submit">Logout</button>
+                    </form>
+                </div><br>
+                <!-- <form class="d-flex">
+                    <button style="margin-left:400px;" class="logout" (click)="logout()" class="btn btn-outline-danger"
+                        type="submit">Logout</button>
+                </form> -->
+
+            </nav>
+        </div>
+    </div>
+
+ 
+        <div class='panel-body' style="margin-top: 50px;">
+            <div class="container">
+                <div class="row">
+                    <ng-container *ngFor="let product of allProductList|filter:searchkey:'brand'">
+                        <div class="card col-sm-4 col-md-3 div" style="margin-left:90px; margin-top: 30px; ">
+                            <img class="card-img-top" src="{{product.image}}">
+                            <div class="card-body">
+                                <h3 class="card-title"
+                                    style="text-overflow:ellipsis; white-space:nowrap; max-width:100ch;overflow:hidden;  text-align: center;">
+                                    {{product.name}}
+                                </h3>
+                                <h2 class="card-text" style="text-align: center;">{{product.brand}}</h2>
+                                <p style="text-align: center;">{{product.price|currency:'INR'}}</p>
+                                <a class="btn cart px-auto" (click)="viewDetails(product.id)"
+                                    style="margin-left:100px; padding-left:7px; padding-right:7px;" color="accent"></a>
+                                <button class="btn cart px-auto" (click)="viewDetails(product.id)"
+                                    style="text-align:center; color:white; text-decoration: underline; background-color:rgb(88, 34, 178);margin-left:70px;"
+                                    mat-menu-item>View
+                                    Detail</button>
+                            </div>
+                        </div>
+
+
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,23 @@
+.login-dark .illustration {
+    text-align: center;
+    padding: 7px 0 10px;
+    font-size: 50px;
+    color: #2980ef;
+}
+.required {
+    color: red;
+  }
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+.password-div{
+  position: relative;
+}
+  .eye-b {
+  color: rgb(56, 42, 189);
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  }

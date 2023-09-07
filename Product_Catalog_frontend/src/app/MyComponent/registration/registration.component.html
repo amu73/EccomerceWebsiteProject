@@ -1,0 +1,144 @@
+<div class="container" style="width: 430px;margin-top:30px; padding:10px 30px; border:3px rgba(0, 0, 0, 0.509) solid">
+  <!-- <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist" style="width:170px;margin-left:100px;">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+        aria-controls="pills-login" aria-selected="true">Register</a>
+    </li>
+  </ul> -->
+  <!-- Pills navs -->
+
+  <!-- Pills content -->
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+      <h2 class="text-uppercase text-center mb-1">Create an account</h2>
+      <form [formGroup]="registrationForm" (ngSubmit)="saveUser()">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="form-outline mb-1 form-group">
+          <!-- <label class="form-label" for="form3Example3cg">Your Email</label> -->
+          <label for="form3Example3cg" class="form-label">Your Email<span class="required">*</span></label>
+          <input class="form-control form-label" [(ngModel)]="userregistration.email" formControlName="email"
+            type="email" name="email" placeholder="Email address"  required  />
+          <span class="text-danger"
+            *ngIf="registrationForm.controls['email'].dirty && registrationForm.hasError('required','email') || registrationForm.controls['email'].touched && registrationForm.controls['email'].errors?.['required']">email
+            is required</span>
+          <div class="text-danger"
+            *ngIf="(registrationForm.controls['email'].dirty  || registrationForm.controls['email'].touched )&& registrationForm.controls['email'].errors?.['email']">
+            email is invalid</div>
+            <span class="text-danger"
+            *ngIf="registrationForm.controls['email'].errors?.['pattern']&&(registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)">
+            email first letter should be  alphabet only
+          </span>
+            <!-- <span class="text-danger"
+            *ngIf="registrationForm.controls['email'].errors?.['pattern']&&(registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)">
+           Email should starts with alphabets
+          </span> -->
+            <!-- <div class="text-danger"
+          *ngIf="registrationForm.controls['email'].hasError('pattern') && registrationForm.controls['email'].touched">email
+              is required</div> -->
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="form-outline">
+              <!-- <label class="form-label" for="form3Example1">First name</label> -->
+              <label for="form3Example1" class="form-label">First name<span class="required">*</span></label>
+              <input type="text" id="form3Example1" class="form-control" [(ngModel)]="userregistration.firstname"
+                formControlName="firstname" name="firstname" placeholder="First Name" required />
+              <span class="text-danger"
+                *ngIf="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required','firstname') || registrationForm.controls['firstname'].touched &&registrationForm.controls['firstname'].errors?.['required']">First
+                Name is required</span>
+               
+              <span class="text-danger"
+                *ngIf="registrationForm.controls['firstname'].errors?.['pattern']&&(registrationForm.controls['firstname'].dirty || registrationForm.controls['firstname'].touched)">
+                first name required only alphabets
+              </span>
+              <div class="text-danger"
+                *ngIf="registrationForm.controls['firstname'].errors?.['minlength'] && (registrationForm.controls['firstname'].dirty || registrationForm.controls['firstname'].touched)">
+                firstname
+                is to short</div>
+
+              <div class="text-danger"
+                *ngIf="registrationForm.controls['firstname'].errors?.['maxlength'] && (registrationForm.controls['firstname'].dirty || registrationForm.controls['firstname'].touched)">
+                firstname
+                is to large</div>
+            </div>
+
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-outline">
+              <!-- <label class="form-label " for="form3Example1">Last Name</label> -->
+              <label for="form3Example1" class="form-label">Last name<span class="required">*</span></label>
+              <input [(ngModel)]="userregistration.lastname" formControlName="lastname" name="lastname" type="text"
+                required placeholder="Last Name" id="form3Example1" class="form-control" />
+
+              <div class="text-danger"
+                *ngIf="registrationForm.controls['lastname'].dirty && registrationForm.hasError('required','lastname') || registrationForm.controls['lastname'].touched &&registrationForm.controls['lastname'].errors?.['required']">
+                Last Name is required</div>
+                
+               
+              <div class="text-danger"
+                *ngIf="registrationForm.controls['lastname'].errors?.['pattern']&&(registrationForm.controls['lastname'].dirty || registrationForm.controls['lastname'].touched)">
+                last name required only alphabets
+              </div>
+              <div class="text-danger"
+                *ngIf="registrationForm.controls['lastname'].errors?.['minlength'] && (registrationForm.controls['lastname'].dirty || registrationForm.controls['lastname'].touched)">
+                Lastname is to short</div>
+                
+              <div class="text-danger"
+                *ngIf="registrationForm.controls['lastname'].errors?.['maxlength'] && (registrationForm.controls['lastname'].dirty || registrationForm.controls['lastname'].touched)">
+                Firstname is to large</div>
+                
+            </div>
+          </div>
+        </div>
+        <div class="md-form form-sm password-div">
+
+          <label for="form3Example4cg" class="form-label">Password<span class="required">*</span></label>
+          <input class="form-control form-control-sm" [(ngModel)]="userregistration.password" formControlName="password"
+          type="{{showPasswordd ? 'text' : 'password' }}" name="password" placeholder="Password" required id="form3Example4cg" />
+          <a (click)="togglePasswordd()" class="eye-b">
+            <i class="{{showPasswordd ? 'fas fa-eye-slash' : 'fas fa-eye' }}"></i>
+        </a>
+          <span class="text-danger"
+            *ngIf="registrationForm.controls['password'].dirty && registrationForm.hasError('required','password') || registrationForm.controls['password'].touched &&registrationForm.controls['password'].errors?.['required']">
+            password is required</span>
+            
+          <div class="text-danger"
+            *ngIf="registrationForm.controls['password'].errors?.['minlength'] && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)">
+            password is to short min 5 char....
+          </div>
+        </div>
+        
+        <div  class="md-form form-sm password-div">
+          <label for="form3Example4cg" class="form-label">Confirm Password<span class="required">*</span></label>
+          <input class="form-control form-control-sm" [(ngModel)]="userregistration.confirmpassword"
+            formControlName="confirmpassword"  type="{{showPassword ? 'text' : 'password' }}" placeholder="Confirm Password" name="confirmpassword"
+            required id="form3Example4cg" />
+            <a (click)="togglePassword()" class="eye-b">
+              <i class="{{showPassword ? 'fas fa-eye-slash' : 'fas fa-eye' }}"></i>
+          </a>
+          <div class="text-danger"
+            *ngIf="registrationForm.controls['confirmpassword'].dirty && registrationForm.hasError('required','confirmpassword')|| registrationForm.controls['confirmpassword'].touched &&registrationForm.controls['confirmpassword'].errors?.['required']">
+            Confirm password is required</div>
+          <div class="text-danger"
+            *ngIf="registrationForm.controls['confirmpassword'].errors?.['minlength'] && (registrationForm.controls['confirmpassword'].dirty || registrationForm.controls['confirmpassword'].touched)">
+            password to short min 5 char...</div>
+
+        </div>
+        <div class="tacbox" style="margin-top:3px;">
+          <input class="input1" required id="checkbox" name="term" formControlName="term" type="checkbox" />
+          <label for="checkbox"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+          <div class="text-danger"
+            *ngIf="registrationForm.controls['term'].errors?.['required'] && (registrationForm.controls['term'].dirty || registrationForm.controls['term'].touched)">
+            Please check the box if you want to proceed</div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button [disabled]="!registrationForm.valid" type="submit" mat-raised-button color="primary">Register</button>
+        </div>
+        <p class="text-center text-muted mt-2 mb-0">Have already an account? <a routerLink="/"
+            class="fw-bold text-body"><u>Login here</u></a></p>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Pills content -->
